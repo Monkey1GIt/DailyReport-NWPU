@@ -1,5 +1,5 @@
 # coding=utf-8
-# @time         2021-08-04 214900
+# @time         2021-08-05 141021
 # @author       Monkey_NWPU
 # @function     自动批量每日疫情填报
 # @debug
@@ -27,8 +27,9 @@ class AutoSignin():
         requests.packages.urllib3.disable_warnings()
         self.context = {}
 
-    # 读取cookie和header
     def get_paramas(self):
+        '''读取cookie和header
+        '''
         # 获取headers
         with open('Headers/Headers_' + self.context['name'] + '.json', 'r') as f:
             self.headers = json.load(f)
@@ -42,8 +43,10 @@ class AutoSignin():
             self.jar_cookies.set(cookie['name'], cookie['value'])
         # self.req_session.headers = self.jar_cookies
 
-    # 构造http请求
+    
     def mk_req(self):
+        '''构造http请求
+        '''
         try:
             # http post get
             if self.context['method'] == 'GET':
@@ -59,8 +62,14 @@ class AutoSignin():
             print(msg_error)
             logging.error(msg_error)
 
-    # 判断结果
+    
     def res_tell(self, data):
+        '''根据配置文件, 判断http请求是否成功
+        Args:
+            data: http请求报文
+        Return:
+            None
+        '''
         if data.find(self.context['result']) > -1:
             res = 'OK'
         else:
