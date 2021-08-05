@@ -1,0 +1,42 @@
+{
+    "cookies_param": {
+        "name": "LoginNWPU",
+        "url": "https://uis.nwpu.edu.cn/cas/login",
+        "method": "POST",
+        "data": {
+            "username": "2020262562",
+            "password": "Pi3141592654",
+            "currentMenu": "1",
+            "execution": "e2s1",
+            "_eventId": "submit",
+            "geolocation": ""
+        }
+    },
+    "member": [
+        {
+            "name": "DailyReportNWPU",
+            "url": "http://yqtb.nwpu.edu.cn/wx/ry/ry_util.jsp",
+            "method": "POST",
+            "data": {
+                "xasymt": "1",
+                "actionType": "addRbxx",
+                "userLoginId": "2020262562",
+                "fxzt": "9",
+                "userType": "2",
+                "userName": "张照",
+                "szcsbm": "1",
+                "szcsmc": "在学校",
+                "sfyzz": "0",
+                "sfqz": "0",
+                "tbly": "sso",
+                "qtqksm": "",
+                "ycqksm": "",
+                "qrlxzt": "",
+                "xymc": "自动化学院",
+                "xssjhm": "13799975011"
+            },
+            "result": "\"state\":\"1\"",
+            "error": {}
+        }
+    ]
+}
