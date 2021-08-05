@@ -13,7 +13,7 @@ The project aims to submit daily report of epidemic situation of NWPU automatica
 1. python3
 2. [Selenium](https://selenium-python.readthedocs.io/installation.html)
 
-In `Raspberry Pi` you can use `sudo apt install chromium-chromedriver` to install selenium
+In `Raspberry Pi` you can use `sudo apt install chromium-chromedriver` to install selenium.
 
 ### Package of Python
 
