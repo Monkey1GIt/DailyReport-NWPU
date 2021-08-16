@@ -28,6 +28,8 @@ def get_cookies():
     form_username.send_keys(USERNAME)
     form_password = driver.find_element_by_id('password')
     form_password.send_keys(PASSWORD)
+    # 关闭弹窗
+    driver.find_element_by_xpath("//button[@class='el-dialog__headerbtn']").click()
     # 提交
     driver.find_element_by_xpath("//input[@name='submit']").click()
     # 获取cookies
