@@ -35,12 +35,11 @@ There are `.json` files in folder `User`, you should fill your information in fi
 
 In school
 
-|     key     |       value       |    sample    |
-| :---------: | :---------------: | :----------: |
-| userLoginId |    Student ID     |  2019123456  |
-|  userName   |     Your name     |     张三     |
-|    xymc     |  Name of college  | 电子信息学院 |
-|   xssjhm    | Your phone number | 13712345678  |
+|     key     |      value      |    sample    |
+| :---------: | :-------------: | :----------: |
+| userLoginId |   Student ID    |  2019123456  |
+|  userName   |    Your name    |     张三     |
+|    xymc     | Name of college | 电子信息学院 |
 
 
 In home
