@@ -12,6 +12,7 @@ with open('User/Userinfo.json', 'r', encoding='utf-8') as f:
 
 URL = 'http://yqtb.nwpu.edu.cn/wx/xg/yz-mobile/index.jsp'
 COOKIES_PATH = 'Cookies/Cookies_DailyReportNWPU.json'
+REURL_PAHT = 'User/Reurl.txt'
 USERNAME = USERINFO['USERNAME']
 PASSWORD = USERINFO['PASSWORD']
 
@@ -39,6 +40,12 @@ def get_cookies():
     with open(COOKIES_PATH, 'w') as f:
         f.write(jsonCookies)
         f.close()
+    # 获取重定向的url
+    driver.find_element_by_xpath("//i[@class='icon iconfont icon-shangbao1']").click()
+    pg_s = driver.page_source
+    reurl = re.search(r'(?!ry_util.jsp)\?sign=.*\&timeStamp=\d+', pg_s).group()
+    with open(REURL_PAHT, 'w', encoding='utf8') as f:
+        f.write(reurl)
     # 退出
     driver.quit()
 
