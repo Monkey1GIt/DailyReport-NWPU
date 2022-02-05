@@ -1,6 +1,6 @@
 [
     {
-        "name": "DailyReportNWPU",
+        "name": "NWPU每日疫情填报",
         "url": "http://yqtb.nwpu.edu.cn/wx/ry/ry_util.jsp",
         "method": "POST",
         "data": {
@@ -11,6 +11,7 @@
             "szcsmc": "yourlocation",
             "szcsbm": "yourzipcode",
             "actionType": "addRbxx",
+            "hsjc": "1",
             "bdzt": "1",
             "sfyzz": "0",
             "sfqz": "0",
@@ -37,11 +38,21 @@
             "sfmtbg": "",
             "qrlxzt": ""
         },
-        "result": "\"state\":\"1\"",
-        "error": {}
+        "response": [
+            {
+                "text": "\"state\":\"1\"",
+                "status": "OK",
+                "info": ""
+            },
+            {
+                "text": "未登录或登录超时",
+                "status": "NO",
+                "info": "Cookies失效"
+            }
+        ]
     },
     {
-        "name": "DailyReportNWPU",
+        "name": "NWPU每日疫情填报",
         "url": "http://yqtb.nwpu.edu.cn/wx/ry/ry_util.jsp",
         "method": "POST",
         "data": {
@@ -60,7 +71,17 @@
             "userType": "2",
             "userName": "张三"
         },
-        "result": "\"state\":\"1\"",
-        "error": {}
+        "response": [
+            {
+                "text": "\"state\":\"1\"",
+                "status": "OK",
+                "info": ""
+            },
+            {
+                "text": "未登录或登录超时",
+                "status": "NO",
+                "info": "Cookies失效"
+            }
+        ]
     }
 ]

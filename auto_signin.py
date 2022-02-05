@@ -1,5 +1,5 @@
 # coding=utf-8
-# @time         2021-08-05 141021
+# @time         2022-02-05 230637
 # @author       Monkey_NWPU
 # @function     自动批量每日疫情填报
 # @debug
@@ -43,7 +43,6 @@ class AutoSignin():
             self.jar_cookies.set(cookie['name'], cookie['value'])
         # self.req_session.headers = self.jar_cookies
 
-    
     def mk_req(self):
         '''构造http请求
         '''
@@ -62,29 +61,32 @@ class AutoSignin():
             print(msg_error)
             logging.error(msg_error)
 
-    
-    def res_tell(self, data):
+    def tell_res(self, data):
         '''根据配置文件, 判断http请求是否成功
         Args:
             data: http请求报文
         Return:
             None
         '''
-        if data.find(self.context['result']) > -1:
-            res = 'OK'
-        else:
-            flag = True
-            res = 'NO: '
-            for err in self.context['error']:
-                if data.find(err) > -1:
-                    res = res + self.context['error'][err]
-                    flag = False
-            if flag:
-                res = res + data[:30]
-                # print(data)
-        res_dict = {self.context['name']: res}
-        logging.info(res_dict)
-        print(res_dict)
+        flag_new = True
+        for example in self.context['response']:
+            if data.find(example['text']) > -1:
+                status = example['status']
+                info = example['info']
+                flag_new = False
+                break
+        # 如果出现新的respone
+        if flag_new:
+            status = 'NO'
+            info = data.replace('\n', '')
+            info = info.replace('\t', '')
+            info = info.replace('\r', '')
+            info = info[0:120]
+            print(info[0:500])
+        # log
+        out_text = f'{self.context["name"]}: {status}: {info}'
+        logging.info(out_text)
+        print(out_text, flush=True)
 
 
 if __name__ == '__main__':

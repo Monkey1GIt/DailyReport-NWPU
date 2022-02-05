@@ -58,7 +58,7 @@ cd DailyReport-NWPU && python main.py
 
 If it succeeded, the console will print:
 
-> {'DailyReportNWPU': 'OK'}
+> NWPU每日疫情填报: OK: 
 
 If you fill multiple information in `context.json`, the scirpt will execution batchly.
 

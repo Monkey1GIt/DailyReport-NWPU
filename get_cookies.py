@@ -11,7 +11,7 @@ with open('User/Userinfo.json', 'r', encoding='utf-8') as f:
     USERINFO = json.load(f)
 
 URL = 'http://yqtb.nwpu.edu.cn/wx/xg/yz-mobile/index.jsp'
-COOKIES_PATH = 'Cookies/Cookies_DailyReportNWPU.json'
+COOKIES_PATH = 'Cookies/Cookies_NWPU每日疫情填报.json'
 REURL_PAHT = 'User/Reurl.txt'
 USERNAME = USERINFO['USERNAME']
 PASSWORD = USERINFO['PASSWORD']
@@ -44,11 +44,11 @@ def get_cookies():
     driver.find_element_by_xpath("//i[@class='icon iconfont icon-shangbao1']").click()
     pg_s = driver.page_source
     reurl = re.search(r'(?!ry_util.jsp)\?sign=.*\&timeStamp=\d+', pg_s).group()
-    with open(REURL_PAHT, 'w', encoding='utf8') as f:
-        f.write(reurl)
+    # with open(REURL_PAHT, 'w', encoding='utf8') as f:
+    #     f.write(reurl)
     # 退出
     driver.quit()
-
+    return reurl
 
 if __name__ == '__main__':
     get_cookies()
