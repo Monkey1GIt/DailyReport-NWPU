@@ -75,6 +75,6 @@ def get_cookies():
 if __name__ == '__main__':
     status, info = get_cookies()
     # log
-    out_text = f'DailyReportNWPU: {status}: {info}'
+    out_text = f'NWPU每日疫情填报: {status}: {info}'
     logging.info(out_text)
     print(out_text)
