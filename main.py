@@ -61,6 +61,7 @@ def get_cookies():
     driver.find_element_by_xpath("//i[@class='weui-icon-checked']").click()
     driver.find_element_by_xpath("//a[@id='save_div']").click()
     # 判断状态
+    driver.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
     if driver.page_source.find('您已提交今日填报') > -1:
         status = 'OK'
         info = ''
