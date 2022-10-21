@@ -3,3 +3,6 @@ run.bat
 opt.log
 Cookies/*
 Reurl.txt
+run.sh
+run.bat
+.vscode/*
