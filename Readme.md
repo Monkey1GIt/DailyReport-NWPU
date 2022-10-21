@@ -20,45 +20,15 @@ In `Raspberry Pi` you can use `sudo apt install chromium-chromedriver` to instal
 1. requests
 2. selenium
 
-## Config
-
-There are `.json` files in folder `User`, you should fill your information in fields.
-
-### Userinfo.json
-
-|   key    |             value             |   sample   |
-| :------: | :---------------------------: | :--------: |
-| USERNAME |          Student ID           | 2019123456 |
-| PASSWORD | Your password of ecampus.nwpu |  nwpu0001  |
-
-### Context.json
-
-In school
-
-|     key     |      value      |    sample    |
-| :---------: | :-------------: | :----------: |
-| userLoginId |   Student ID    |  2019123456  |
-|  userName   |    Your name    |     张三     |
-|    xymc     | Name of college | 电子信息学院 |
-
-
-In home
-
-|   key    |             value             |       sample       |
-| :------: | :---------------------------: | :----------------: |
-|  szcsbm  | The zip code of your location |       710100       |
-|  szcsmc  |         Your location         | 陕西省西安市长安区 |
-| userName |           Your name           |        张三        |
-
-## Usage
-
 ```bash
-cd DailyReport-NWPU && python main.py
+cd DailyReport-NWPU && python main.py your_username your_password
 ```
 
 If it succeeded, the console will print:
 
 > NWPU每日疫情填报: OK: 
 
-If you fill multiple information in `context.json`, the scirpt will execution batchly.
+and 
 
+1. if your fill in the form manually, the script will not fill again and print `NWPU每日疫情填报: OK: Have Signed!  `
+2. the srcpit will keep the last value of form and automatically submit
