@@ -34,8 +34,9 @@ def submit_form():
     # 打开网页
     driver.get(URL)
     # 填写表单
-    form = driver.find_element_by_xpath('//li[contains(text(),"密码登录")]')
-    if not form:
+    try:
+        form = driver.find_element_by_xpath('//li[contains(text(),"密码登录")]')
+    except:
         form = driver.find_element_by_xpath('//li[contains(text(),"User-Password")]')
     form.click()
     form_username = driver.find_element_by_xpath(
@@ -51,7 +52,7 @@ def submit_form():
         '//input[@name="button" and @accesskey="l"]')
     btn_submit.click()
     # 显示等待页面跳转
-    WebDriverWait(driver, 3).until(EC.title_is('疫情每日填报'))
+    WebDriverWait(driver, 10).until(EC.title_is('疫情每日填报'))
     # 查询登录状态
     if driver.page_source.find('疫情每日填报') == -1:
         # msg_error = 'submit_form: ' + e.__class__.__name__ + ': ' + str(e)
@@ -72,7 +73,7 @@ def submit_form():
         '//label[@class="weui-cell weui-cell_active weui-check__label"]').click()
     driver.find_element_by_xpath('//a[@id="save_div"]').click()
     # 显示等待页面跳转
-    WebDriverWait(driver, 3).until(EC.title_is('疫情每日填报'))
+    WebDriverWait(driver, 10).until(EC.title_is('疫情每日填报'))
     # 判断状态
     driver.get('https://yqtb.nwpu.edu.cn/wx/ry/jrsb_xs.jsp')
     if driver.page_source.find('您已提交今日填报') > -1:
